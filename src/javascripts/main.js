@@ -1,4 +1,10 @@
 import '../styles/main.scss';
 import 'bootstrap';
+import displayMessages from './components/displayMessages';
 
-console.error('hi');
+
+const init = () => {
+  displayMessages.displayAllMessages();
+};
+
+init();
