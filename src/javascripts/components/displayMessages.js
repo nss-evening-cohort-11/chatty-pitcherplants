@@ -1,3 +1,4 @@
+import moment from 'moment';
 import util from '../helpers/data/util';
 import messageData from '../helpers/data/messageData';
 
@@ -10,6 +11,7 @@ const displayAllMessages = () => {
     domString += '<div class="card-body">';
     domString += `<h5 class="card-title">${userMessage.name}</h5>`;
     domString += `<p class="card-text">${userMessage.message}</p>`;
+    domString += `<small class="card-text">${moment().subtract(1, 'days').calendar()}</small>`;
     domString += '</div>';
     domString += '</div>';
   });
