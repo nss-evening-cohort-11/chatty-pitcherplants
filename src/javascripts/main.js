@@ -1,14 +1,17 @@
 import '../styles/main.scss';
 import 'bootstrap';
+import displayMessages from './components/displayMessages';
 
-console.error('hi');
 
 const buttonEvents = () => {
-  $('#eat').on('click', '#send-message', add-message);
+  $('#incoming-message').on('click', '#send-button', add-message);
+  $('#incoming-message').on('change', '#iris', );
+
 };
 
 const init = () => {
-
+  displayMessages.displayAllMessages();
+  buttonEvents();
 };
 
 init();
