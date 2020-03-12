@@ -6,7 +6,12 @@ const displayAllMessages = () => {
   let domString = '';
 
   messages.forEach((userMessage) => {
-    domString += userMessage.name;
+    domString += '<div class="card my-3" style="width: 18rem;">';
+    domString += '<div class="card-body">';
+    domString += `<h5 class="card-title">${userMessage.name}</h5>`;
+    domString += `<p class="card-text">${userMessage.message}</p>`;
+    domString += '</div>';
+    domString += '</div>';
   });
 
   util.printToDom('incoming-message', domString);
