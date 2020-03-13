@@ -1,6 +1,31 @@
+$theme-colors: (
+  "primary": #eeda8f,
+  "danger": #a1473f,
+  "success": #798a68,
+  "custom-color": #900,
+  );
+
 @import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 
+//background
+$light-mode-background-color: #bfb6b5;
+$dark-mode-background-color: #474840;
+
+//navbar
+$light-mode-navbar: #428bca;
+$dark-mode-navbar: #292b2c;
+
+
+
+
+
 body {
-  background-color: white;
+  background-color: $light-mode-background-color;
+  // background-color: $dark-mode-background-color;
+}
+
+
+.navbar {
+  background-color: $dark-mode-navbar
 }
