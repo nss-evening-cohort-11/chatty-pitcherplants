@@ -17,9 +17,13 @@ const displayAllMessages = () => {
   util.printToDom('incoming-message', domString);
 };
 
-const addMessage = () => {
-displayAllMessages();
-};
+// const addMessage = () => {
+// displayAllMessages();
+// const messageObject = {
+
+// }
+// message.push()
+// };
 
 export default {
   displayAllMessages,
