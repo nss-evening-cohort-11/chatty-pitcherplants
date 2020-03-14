@@ -2,12 +2,13 @@ import moment from '../../../node_modules/moment';
 import util from '../helpers/util';
 import messageData from '../helpers/data/messageData';
 
+
 const displayAllMessages = () => {
   const messages = messageData.getMessages();
   let domString = '';
 
   messages.forEach((userMessage) => {
-    domString += '<div class="card my-3" style="width: 18rem;">';
+    domString += `<div id="${userMessage.id}" class="card my-3" style="width: 18rem;">`;
     domString += '<div class="card-body">';
     domString += `<h5 class="card-title">${userMessage.name}</h5>`;
     domString += `<p class="card-text">${userMessage.message}</p>`;
@@ -15,21 +16,22 @@ const displayAllMessages = () => {
     domString += `<small class="card-text">${userMessage.date}</small>`;
     domString += '</div>';
     domString += '<div class ="text-right">';
-    domString += '<button class="btn btn-danger">Delete</button>';
+    domString += '<button id="delete" class="btn btn-danger">Delete</button>';
     domString += '</div>';
     domString += '</div>';
     domString += '</div>';
   });
 
-  util.printToDom('incoming-message', domString);
-};
+  const deleteCard = (e) => {
+    const cardId = e.target.closest('.card').id;
+    const messageIndex = messages.findIndex((x) => x.id === cardId);
+    messages.splice(messageIndex, 1);
+    displayAllMessages();
+  };
 
-// const deleteCard = (e) => {
-//   cardId = e.target.closest(.card).id
-//   const messageIndex = messages.find.index((x) => x.id === cardId);
-//   messages.splice(message.index, 2)
-//   displayAllMessages();
-// };
+  util.printToDom('incoming-message', domString);
+  document.getElementById('delete').addEventListener('click', deleteCard);
+};
 
 
 const addMessage = () => {
