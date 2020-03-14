@@ -32,6 +32,7 @@ const addMessage = () => {
     messageData.setMessage(messageObject);
     displayAllMessages();
   }
+  document.getElementById('input-form').reset();
 };
 
 
