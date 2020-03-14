@@ -10,6 +10,9 @@ const displayAllMessages = () => {
     domString += '<div class="card-body">';
     domString += `<h5 class="card-title">${userMessage.name}</h5>`;
     domString += `<p class="card-text">${userMessage.message}</p>`;
+    domString += '<div class ="text-right">';
+    domString += '<button class="btn btn-danger">Delete</button>';
+    domString += '</div>';
     domString += '</div>';
     domString += '</div>';
   });
