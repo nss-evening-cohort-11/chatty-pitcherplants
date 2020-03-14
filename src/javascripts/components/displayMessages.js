@@ -21,15 +21,17 @@ const displayAllMessages = () => {
 
 const addMessage = () => {
   const message = document.getElementById('user-message').value;
-  const name = document.querySelector('input[name="userSelection"]:checked').value;
-  const messageObject = {
-    date: moment(Date.now()).format('MMMM Do YYYY, h:mm:ss a'),
-    name,
-    message,
-    id: `message${messageData.getMessages().length}`,
-  };
-  messageData.setMessage(messageObject);
-  displayAllMessages();
+  if (!/^\s*$/.test(message)) {
+    const name = document.querySelector('input[name="userSelection"]:checked').value;
+    const messageObject = {
+      date: moment(Date.now()).format('MMMM Do YYYY, h:mm:ss a'),
+      name,
+      message,
+      id: `message${messageData.getMessages().length}`,
+    };
+    messageData.setMessage(messageObject);
+    displayAllMessages();
+  }
 };
 
 
