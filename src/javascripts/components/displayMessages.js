@@ -13,7 +13,6 @@ const displayAllMessages = () => {
     domString += '</div>';
     domString += '</div>';
   });
-
   util.printToDom('incoming-message', domString);
 };
 
@@ -28,6 +27,7 @@ const addMessage = () => {
   };
 
   messageData.messages.push(messageObject);
+  // messageData.slice(messageData.length - 20, messageData.length);
   displayAllMessages();
 };
 
