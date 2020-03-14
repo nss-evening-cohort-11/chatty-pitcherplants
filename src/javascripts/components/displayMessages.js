@@ -50,8 +50,13 @@ const addMessage = () => {
   document.getElementById('input-form').reset();
 };
 
+const clearMessages = () => {
+  console.error('hello I am being called');
+};
+
 
 export default {
   addMessage,
   displayAllMessages,
+  clearMessages,
 };
