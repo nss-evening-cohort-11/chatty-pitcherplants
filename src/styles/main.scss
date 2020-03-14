@@ -1,6 +1,22 @@
+$theme-colors: (
+  "primary": #eeda8f,
+  "danger": #a1473f,
+  "success": #798a68,
+  "bg-light": #bbbdbb,
+  "custom-color": #900,
+  );
+
 @import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 
-body {
-  background-color: white;
+
+.darkmode--activated label {
+  color: #bfb6b5;
 }
+
+.darkmode--activated .card-body {
+  background-color: #867597;
+  border-color: #867597;
+}
+
+

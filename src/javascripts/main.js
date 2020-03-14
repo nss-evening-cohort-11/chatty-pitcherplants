@@ -1,7 +1,10 @@
 import '../styles/main.scss';
 import 'bootstrap';
-// eslint-disable-next-line import/no-named-as-default
+import Darkmode from 'darkmode-js';
 import displayMessage from './components/displayMessages';
+
+
+new Darkmode().showWidget();
 
 
 const buttonEvents = () => {
