@@ -20,6 +20,14 @@ const displayAllMessages = () => {
   util.printToDom('incoming-message', domString);
 };
 
+const deleteCard = (e) => {
+  cardId = e.target.closest(.card).id
+  const messageIndex = messages.find.index((x) => x.id === cardId);
+  messages.splice(message.index, 2)
+  displayAllMessages();
+};
+
+
 const addMessage = () => {
   const message = document.getElementById('user-message').value;
 
