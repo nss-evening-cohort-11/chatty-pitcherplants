@@ -1,5 +1,5 @@
 import moment from 'moment';
-import util from '../helpers/data/util';
+import util from '../helpers/util';
 import messageData from '../helpers/data/messageData';
 
 const displayAllMessages = () => {
@@ -11,7 +11,7 @@ const displayAllMessages = () => {
     domString += '<div class="card-body">';
     domString += `<h5 class="card-title">${userMessage.name}</h5>`;
     domString += `<p class="card-text">${userMessage.message}</p>`;
-    domString += `<small class="card-text">${moment().subtract(1, 'days').calendar()}</small>`;
+    domString += `<small class="card-text">${userMessage.date}</small>`;
     domString += '</div>';
     domString += '</div>';
   });
@@ -21,17 +21,17 @@ const displayAllMessages = () => {
 
 const addMessage = () => {
   const message = document.getElementById('user-message').value;
-
+  const name = document.querySelector('input[name="userSelection"]:checked').value;
   const messageObject = {
     date: moment(Date.now()).format('MMMM Do YYYY, h:mm:ss a'),
-    name: $('input[name="userSelection"]:checked').val(),
+    name,
     message,
-    id: 'User id + index in message array',
+    id: `message${messageData.getMessages().length}`,
   };
-
-  messageData.messages.push(messageObject);
+  messageData.setMessage(messageObject);
   displayAllMessages();
 };
+
 
 export default {
   addMessage,

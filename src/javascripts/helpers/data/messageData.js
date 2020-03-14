@@ -1,38 +1,45 @@
+import moment from 'moment';
+
 const messages = [{
-  date: Date.now(),
+  date: moment().subtract(1, 'days').calendar(),
   name: 'Brandy',
   message: 'Hey, everyone. Who should start with the setup branch?',
-  id: 'User id + index in message array',
+  id: 'brandy',
 },
 {
-  date: Date.now(),
+  date: moment().subtract(1, 'days').calendar(),
   name: 'Helen',
   message: 'Are the tickets done yet?',
-  id: 'User id + index in message array',
+  id: 'helen',
 },
 {
-  date: Date.now(),
+  date: moment().subtract(1, 'days').calendar(),
   name: 'Logan',
   message: 'Yeah, the tickets are finished.',
-  id: 'User id + index in message array',
+  id: 'logan',
 },
 {
-  date: Date.now(),
+  date: moment().subtract(1, 'days').calendar(),
   name: 'Iris',
   message: 'I can do the setup branch. Give me a minute...',
-  id: 'User id + index in message array',
+  id: 'iris',
 },
 {
-  date: Date.now(),
+  date: moment().subtract(1, 'days').calendar(),
   name: 'Becca',
   message: 'Teamwork makes the dream work.',
-  id: 'User id + index in message array',
+  id: 'becca',
 },
 ];
 
 const getMessages = () => messages;
 
+const setMessage = (newMessage) => {
+  messages.push(newMessage);
+};
+
 export default {
   messages,
   getMessages,
+  setMessage,
 };
