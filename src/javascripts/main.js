@@ -1,6 +1,9 @@
 import '../styles/main.scss';
 import 'bootstrap';
 import displayMessage from './components/displayMessages';
+import Darkmode from 'darkmode-js';
+
+new Darkmode().showWidget();
 
 
 const buttonEvents = () => {
