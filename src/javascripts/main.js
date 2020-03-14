@@ -2,7 +2,7 @@ import '../styles/main.scss';
 import 'bootstrap';
 import Darkmode from 'darkmode-js';
 import displayMessage from './components/displayMessages';
-
+import userRadios from './components/userRadios';
 
 new Darkmode().showWidget();
 
@@ -15,6 +15,7 @@ const buttonEvents = () => {
 
 const init = () => {
   displayMessage.displayAllMessages();
+  userRadios.printRadioButtons();
   buttonEvents();
 };
 
