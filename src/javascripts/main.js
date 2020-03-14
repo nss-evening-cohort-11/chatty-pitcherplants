@@ -10,6 +10,7 @@ new Darkmode().showWidget();
 const buttonEvents = () => {
   const sendBtn = document.getElementById('send-button');
   sendBtn.addEventListener('click', displayMessage.addMessage);
+  $('#incoming-message').on('click', '#send-button', displayMessage.addMessage);
 };
 
 const init = () => {
