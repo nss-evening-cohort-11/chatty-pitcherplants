@@ -1,4 +1,4 @@
-import moment from 'moment';
+import moment from '../../../../node_modules/moment';
 
 const messages = [{
   date: moment().subtract(1, 'days').calendar(),
