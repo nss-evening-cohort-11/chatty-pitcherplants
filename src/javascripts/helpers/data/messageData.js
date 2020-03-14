@@ -33,5 +33,6 @@ const messages = [{
 const getMessages = () => messages;
 
 export default {
+  messages,
   getMessages,
 };
