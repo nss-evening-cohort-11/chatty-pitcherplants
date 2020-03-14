@@ -8,6 +8,18 @@ $theme-colors: (
 @import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 
+
+.darkmode--activated label {
+  color: #bfb6b5;
+}
+
+.darkmode--activated .card-body {
+  background-color: #867597;
+  border-color: #867597;
+}
+
+
+/*
 //background
 $light-mode-background-color: #bfb6b5;
 $dark-mode-background-color: #474840;
@@ -27,3 +39,5 @@ body {
 .navbar {
   background-color: $dark-mode-navbar
 }
+
+*/

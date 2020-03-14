@@ -1,7 +1,8 @@
 import '../styles/main.scss';
 import 'bootstrap';
-import displayMessage from './components/displayMessages';
 import Darkmode from 'darkmode-js';
+import displayMessage from './components/displayMessages';
+
 
 new Darkmode().showWidget();
 
