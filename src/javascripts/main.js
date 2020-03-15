@@ -13,7 +13,6 @@ const buttonEvents = () => {
   sendBtn.addEventListener('click', displayMessage.addMessage);
   clearBtn.addEventListener('click', displayMessage.clearMessages);
   $('#incoming-message').on('click', '#send-button', displayMessage.addMessage);
-  // $('#incoming-message').on('click', '#send-button', displayMessage.addMessage);
   $('body').on('click', '.delete', displayMessage.deleteCard);
 };
 
