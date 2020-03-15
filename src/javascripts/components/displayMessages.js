@@ -23,7 +23,7 @@ const displayAllMessages = () => {
     domString += `<small class="card-text">${userMessage.date}</small>`;
     domString += '</div>';
     domString += '<div class ="text-right">';
-    domString += '<button id="delete"class="btn btn-danger">Delete</button>';
+    domString += '<button class="btn btn-danger delete">Delete</button>';
     domString += '</div>';
     domString += '</div>';
     domString += '</div>';
