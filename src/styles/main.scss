@@ -3,7 +3,7 @@ $theme-colors: (
   "danger": #a1473f,
   "success": #798a68,
   "bg-light": #bbbdbb,
-  "custom-color": #900,
+  "custom-color": #867597,
   );
 
 @import "~bootstrap/scss/bootstrap";
@@ -11,7 +11,7 @@ $theme-colors: (
 
 
 .darkmode--activated label {
-  color: #bfb6b5;
+  color: #161616;
 }
 
 .darkmode--activated .card-body {
