@@ -2,7 +2,7 @@ import '../styles/main.scss';
 import 'bootstrap';
 import Darkmode from 'darkmode-js';
 import displayMessage from './components/displayMessages';
-
+import userRadios from './components/userRadios';
 
 new Darkmode().showWidget();
 
@@ -13,10 +13,13 @@ const buttonEvents = () => {
   sendBtn.addEventListener('click', displayMessage.addMessage);
   clearBtn.addEventListener('click', displayMessage.clearMessages);
   $('#incoming-message').on('click', '#send-button', displayMessage.addMessage);
+  // $('#incoming-message').on('click', '#send-button', displayMessage.addMessage);
+  $('body').on('click', '.delete', displayMessage.deleteCard);
 };
 
 const init = () => {
   displayMessage.displayAllMessages();
+  userRadios.printRadioButtons();
   buttonEvents();
 };
 

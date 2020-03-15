@@ -1,10 +1,17 @@
 import moment from '../../../node_modules/moment';
 import util from '../helpers/util';
 import messageData from '../helpers/data/messageData';
+import userData from '../helpers/data/userData';
 
+const checkClearButton = () => {
+  if (messageData.getMessages.length <= 0) {
+    document.getElementById('clear-button').className = 'btn btn-dark mx-3 my-2 my-sm-0';
+  }
+};
 
 const displayAllMessages = () => {
   const messages = messageData.getMessages();
+
   let domString = '';
 
   messages.forEach((userMessage) => {
@@ -16,33 +23,32 @@ const displayAllMessages = () => {
     domString += `<small class="card-text">${userMessage.date}</small>`;
     domString += '</div>';
     domString += '<div class ="text-right">';
-    domString += '<button id="delete" class="btn btn-danger">Delete</button>';
+    domString += '<button id="delete"class="btn btn-danger">Delete</button>';
     domString += '</div>';
     domString += '</div>';
     domString += '</div>';
   });
-
-  const deleteCard = (e) => {
-    const cardId = e.target.closest('.card').id;
-    const messageIndex = messages.findIndex((x) => x.id === cardId);
-    messages.splice(messageIndex, 1);
-    displayAllMessages();
-  };
-
   util.printToDom('incoming-message', domString);
-  document.getElementById('delete').addEventListener('click', deleteCard);
 };
 
+const deleteCard = (e) => {
+  const messages = messageData.getMessages();
+  const cardId = e.target.closest('.card').id;
+  const messageIndex = messages.findIndex((x) => x.id === cardId);
+  messages.splice(messageIndex, 1);
+  displayAllMessages();
+};
 
 const addMessage = () => {
   const message = document.getElementById('user-message').value;
+  const name = document.querySelector('input[name="userSelection"]:checked').value;
+  const currentUser = userData.getUsers().find((x) => x.name === name);
   if (!/^\s*$/.test(message)) {
-    const name = document.querySelector('input[name="userSelection"]:checked').value;
     const messageObject = {
       date: moment(Date.now()).format('MMMM Do YYYY, h:mm:ss a'),
       name,
       message,
-      id: `message${messageData.getMessages().length}`,
+      id: `${currentUser.id}`,
     };
     messageData.setMessage(messageObject);
     displayAllMessages();
@@ -51,12 +57,17 @@ const addMessage = () => {
 };
 
 const clearMessages = () => {
-  console.error('hello I am being called');
+  if (messageData.messages.length > 0) {
+    messageData.emptyMessages();
+    displayAllMessages();
+  }
+  checkClearButton();
 };
 
 
 export default {
   addMessage,
   displayAllMessages,
+  deleteCard,
   clearMessages,
 };
