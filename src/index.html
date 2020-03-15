@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <nav class="d-flex flex-column align-items-center navbar-expand-lg navbar-light bg-primary">
+  <nav class="col-10 m-auto d-flex flex-column align-items-center navbar-expand-lg navbar-light bg-primary">
     <div class="m-3 collapse navbar-collapse d-flex justify-content-center" id="navbar">
       <a class="navbar-brand mx-3" href="./index.html"><i class="far fa-comment-alt"></i></a>
       <form id="input-form" class="form-inline my-2 my-lg-0">
@@ -28,8 +28,10 @@
   </nav>
 
   <div class="container">
-    <div id="incoming-message" class="col-6"></div>
-    <div id="user-message" class="col-6"></div>
+    <div class="row">
+      <div id="incoming-message" class="col-6 d-flex flex-column align-items-center p-2"></div>
+      <div id="user-message" class="col-6 d-flex flex-column align-items-center p-2"></div>
+    </div>
   </div>
 </body>
 
