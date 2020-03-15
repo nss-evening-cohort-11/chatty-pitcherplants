@@ -4,14 +4,14 @@ import messageData from '../helpers/data/messageData';
 import userData from '../helpers/data/userData';
 
 const checkClearButton = () => {
-  if (messageData.getMessages.length <= 0) {
-    document.getElementById('clear-button').className = 'btn btn-dark mx-3 my-2 my-sm-0';
+  if (messageData.messages.length > 0) {
+    document.getElementById('clear-button').className = 'btn btn-danger mx-3 my-2 my-sm-0';
   }
+  document.getElementById('clear-button').className = 'btn btn-dark mx-3 my-2 my-sm-0';
 };
 
 const displayAllMessages = () => {
   const messages = messageData.getMessages();
-
   let domString = '';
 
   messages.forEach((userMessage) => {
@@ -23,7 +23,7 @@ const displayAllMessages = () => {
     domString += `<small class="card-text">${userMessage.date}</small>`;
     domString += '</div>';
     domString += '<div class ="text-right">';
-    domString += '<button id="delete"class="btn btn-danger">Delete</button>';
+    domString += '<button class="delete btn btn-danger">Delete</button>';
     domString += '</div>';
     domString += '</div>';
     domString += '</div>';
@@ -54,15 +54,16 @@ const addMessage = () => {
     messageData.setMessage(messageObject);
     displayAllMessages();
   }
+  checkClearButton();
   document.getElementById('input-form').reset();
 };
 
 const clearMessages = () => {
   if (messageData.messages.length > 0) {
     messageData.emptyMessages();
+    checkClearButton();
     displayAllMessages();
   }
-  checkClearButton();
 };
 
 
