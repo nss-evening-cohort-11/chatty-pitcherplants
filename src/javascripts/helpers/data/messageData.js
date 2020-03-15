@@ -43,7 +43,6 @@ const emptyMessages = () => {
 };
 
 export default {
-  messages,
   getMessages,
   setMessage,
   emptyMessages,
