@@ -4,7 +4,6 @@ import Darkmode from 'darkmode-js';
 import displayMessage from './components/displayMessages/displayMessages';
 import userRadios from './components/userRadios';
 
-new Darkmode().showWidget();
 
 const buttonEvents = () => {
   const sendBtn = document.getElementById('send-button');
@@ -14,6 +13,7 @@ const buttonEvents = () => {
   $('#incoming-message').on('click', '#send-button', displayMessage.addMessage);
   $('body').on('click', '.delete', displayMessage.deleteCard);
   $('input[type=radio][name=userSelection]').on('change', displayMessage.displayAllMessages);
+  new Darkmode().showWidget();
 };
 
 const init = () => {
