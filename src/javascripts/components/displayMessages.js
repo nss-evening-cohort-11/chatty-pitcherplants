@@ -3,11 +3,12 @@ import util from '../helpers/util';
 import messageData from '../helpers/data/messageData';
 import userData from '../helpers/data/userData';
 
-const checkClearButton = () => {
-  if (messageData.messages.length > 0) {
-    document.getElementById('clear-button').className = 'btn btn-danger mx-3 my-2 my-sm-0';
-  }
-  document.getElementById('clear-button').className = 'btn btn-dark mx-3 my-2 my-sm-0';
+const clearButtonDisabled = () => {
+  $('#clear-button').prop('disabled', true);
+};
+
+const clearButtonActive = () => {
+  $('#clear-button').prop('disabled', false);
 };
 
 const displayAllMessages = () => {
@@ -52,16 +53,16 @@ const addMessage = () => {
       id: `${currentUser.id}-message${messageCount}`,
     };
     messageData.setMessage(messageObject);
+    clearButtonActive();
     displayAllMessages();
   }
-  checkClearButton();
   document.getElementById('input-form').reset();
 };
 
 const clearMessages = () => {
   if (messageData.messages.length > 0) {
     messageData.emptyMessages();
-    checkClearButton();
+    clearButtonDisabled();
     displayAllMessages();
   }
 };
