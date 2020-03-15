@@ -67,7 +67,7 @@ const addMessage = () => {
 };
 
 const clearMessages = () => {
-  if (messageData.messages.length > 0) {
+  if (messageData.getMessages().length > 0) {
     messageData.emptyMessages();
     clearButtonDisabled();
     displayAllMessages();
