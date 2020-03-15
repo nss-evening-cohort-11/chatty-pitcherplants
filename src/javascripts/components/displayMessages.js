@@ -6,9 +6,8 @@ import userData from '../helpers/data/userData';
 
 const displayAllMessages = () => {
   const messages = messageData.getMessages();
-  messages.slice(messages.length - 6, messages.length); // i added this
-  const lastTwentyMessages = messages.slice(messages.length - 6, messages.length); // i added this
-  console.error(lastTwentyMessages); // i added this
+  // const messages = messageData.lastTwentyMessages(); // added
+
   let domString = '';
 
   messages.forEach((userMessage) => {
@@ -24,26 +23,23 @@ const displayAllMessages = () => {
     domString += '</div>';
     domString += '</div>';
     domString += '</div>';
-    // return lastTwentyMessages;
   });
 
   util.printToDom('incoming-message', domString);
+  console.error(messageData.lastTwentyMessages());
+  return messageData.lastTwentyMessages();
 };
 
-// const lastTwentyMessages = () => {
-//   const messages = messageData.getMessages();
-//   messages.slice(messageData.length - 6, messageData.length);
-// }; // new line
-
-// console.error(lastTwentyMessages(displayAllMessages));
 
 const deleteCard = (e) => {
-  const messages = messageData.getMessages();
+  const messages = messageData.getMessages(); // added
+  // const messages = messageData.lastTwentyMessages();
   const cardId = e.target.closest('.card').id;
   const messageIndex = messages.findIndex((x) => x.id === cardId);
   messages.splice(messageIndex, 1);
   displayAllMessages();
 };
+
 
 const addMessage = () => {
   const message = document.getElementById('user-message').value;
@@ -59,16 +55,13 @@ const addMessage = () => {
       id: `${currentUser.id}-message${messageCount}`,
     };
     messageData.setMessage(messageObject);
-
     displayAllMessages();
   }
   document.getElementById('input-form').reset();
 };
 
-
 export default {
   addMessage,
   displayAllMessages,
   deleteCard,
-  // lastTwentyMessages,
 };

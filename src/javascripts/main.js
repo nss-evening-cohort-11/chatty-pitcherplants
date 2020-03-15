@@ -6,7 +6,6 @@ import userRadios from './components/userRadios';
 
 new Darkmode().showWidget();
 
-
 const buttonEvents = () => {
   const sendBtn = document.getElementById('send-button');
   sendBtn.addEventListener('click', displayMessage.addMessage);
@@ -16,6 +15,7 @@ const buttonEvents = () => {
 
 const init = () => {
   displayMessage.displayAllMessages();
+  // displayMessage.lastTwentyMessages();
   userRadios.printRadioButtons();
   buttonEvents();
 };

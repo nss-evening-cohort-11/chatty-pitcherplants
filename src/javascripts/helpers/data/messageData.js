@@ -33,17 +33,26 @@ const messages = [{
   id: 'user5-message1',
 },
 ];
-// when i use -20 it only display the last 6 onscreen?
-// when i get to 11 the first two card disappear?
+
 
 const getMessages = () => messages;
+// .slice(0, messages.length - 10);
 
 const setMessage = (newMessage) => {
   messages.push(newMessage);
 };
 
+
+const lastTwentyMessages = () => messages.slice(messages.length - 6, messages.length); // this is a return statement
+
+//
+// const lastTwentyMessages = () => {
+//   setMessage().slice(messages.length - 6, messages.length);
+// };
+
 export default {
   messages,
   getMessages,
   setMessage,
+  lastTwentyMessages,
 };
