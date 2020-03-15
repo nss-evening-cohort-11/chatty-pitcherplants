@@ -15,7 +15,7 @@ const displayAllMessages = () => {
   let domString = '';
 
   messages.forEach((userMessage) => {
-    domString += `<div id="${userMessage.id}" class="card my-3" style="width: 18rem;">`;
+    domString += `<div id="${userMessage.id}" class="card my-2" style="width: 18rem;">`;
     domString += '<div class="card-body">';
     domString += `<h5 class="card-title">${userMessage.name}</h5>`;
     domString += `<p class="card-text">${userMessage.message}</p>`;
@@ -43,12 +43,13 @@ const addMessage = () => {
   const message = document.getElementById('user-message').value;
   const name = document.querySelector('input[name="userSelection"]:checked').value;
   const currentUser = userData.getUsers().find((x) => x.name === name);
+  const messageCount = messageData.getMessages().filter((x) => currentUser.id === x.id).length + 1;
   if (!/^\s*$/.test(message)) {
     const messageObject = {
-      date: moment(Date.now()).format('MMMM Do YYYY, h:mm:ss a'),
+      date: moment().calendar(),
       name,
       message,
-      id: `${currentUser.id}`,
+      id: `${currentUser.id}-message${messageCount}`,
     };
     messageData.setMessage(messageObject);
     displayAllMessages();
