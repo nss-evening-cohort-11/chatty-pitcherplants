@@ -3,15 +3,16 @@ import util from '../helpers/util';
 import messageData from '../helpers/data/messageData';
 import userData from '../helpers/data/userData';
 
-const checkClearButton = () => {
-  if (messageData.getMessages.length <= 0) {
-    document.getElementById('clear-button').className = 'btn btn-dark mx-3 my-2 my-sm-0';
-  }
+const clearButtonDisabled = () => {
+  $('#clear-button').prop('disabled', true);
+};
+
+const clearButtonActive = () => {
+  $('#clear-button').prop('disabled', false);
 };
 
 const displayAllMessages = () => {
   const messages = messageData.getMessages();
-
   let domString = '';
 
   messages.forEach((userMessage) => {
@@ -23,7 +24,7 @@ const displayAllMessages = () => {
     domString += `<small class="card-text">${userMessage.date}</small>`;
     domString += '</div>';
     domString += '<div class ="text-right">';
-    domString += '<button class="btn btn-danger delete">Delete</button>';
+    domString += '<button class="delete btn btn-danger">Delete</button>';
     domString += '</div>';
     domString += '</div>';
     domString += '</div>';
@@ -52,6 +53,7 @@ const addMessage = () => {
       id: `${currentUser.id}-message${messageCount}`,
     };
     messageData.setMessage(messageObject);
+    clearButtonActive();
     displayAllMessages();
   }
   document.getElementById('input-form').reset();
@@ -60,9 +62,9 @@ const addMessage = () => {
 const clearMessages = () => {
   if (messageData.messages.length > 0) {
     messageData.emptyMessages();
+    clearButtonDisabled();
     displayAllMessages();
   }
-  checkClearButton();
 };
 
 
