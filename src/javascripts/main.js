@@ -14,6 +14,7 @@ const buttonEvents = () => {
   clearBtn.addEventListener('click', displayMessage.clearMessages);
   $('#incoming-message').on('click', '#send-button', displayMessage.addMessage);
   $('body').on('click', '.delete', displayMessage.deleteCard);
+  $('input[type=radio][name=userSelection]').on('change', displayMessage.displayAllMessages);
 };
 
 const init = () => {
