@@ -33,7 +33,8 @@ const messages = [{
   id: 'becca',
 },
 ];
-
+// when i use -20 it only display the last 6 onscreen?
+// when i get to 11 the first two card disappear?
 
 const getMessages = () => messages;
 
