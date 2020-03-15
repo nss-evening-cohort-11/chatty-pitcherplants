@@ -50,9 +50,13 @@ const lastTwentyMessages = () => messages.slice(messages.length - 6, messages.le
 //   setMessage().slice(messages.length - 6, messages.length);
 // };
 
+const emptyMessages = () => {
+  messages.splice(0, messages.length);
+};
+
 export default {
-  messages,
   getMessages,
   setMessage,
   lastTwentyMessages,
+  emptyMessages,
 };
