@@ -9,6 +9,7 @@ new Darkmode().showWidget();
 
 const buttonEvents = () => {
   const sendBtn = document.getElementById('send-button');
+  const clearBtn = document.getElementById('clear-button');
   sendBtn.addEventListener('click', displayMessage.addMessage);
   $('#incoming-message').on('click', '#send-button', displayMessage.addMessage);
   $('body').on('click', '.delete', displayMessage.deleteCard);

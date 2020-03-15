@@ -3,9 +3,15 @@ import util from '../helpers/util';
 import messageData from '../helpers/data/messageData';
 import userData from '../helpers/data/userData';
 
+const checkClearButton = () => {
+  if (messageData.getMessages.length <= 0) {
+    document.getElementById('clear-button').className = 'btn btn-dark mx-3 my-2 my-sm-0';
+  }
+};
 
 const displayAllMessages = () => {
   const messages = messageData.getMessages();
+
   let domString = '';
 
   messages.forEach((userMessage) => {
@@ -17,7 +23,7 @@ const displayAllMessages = () => {
     domString += `<small class="card-text">${userMessage.date}</small>`;
     domString += '</div>';
     domString += '<div class ="text-right">';
-    domString += '<button id="delete" class="btn btn-danger delete">Delete</button>';
+    domString += '<button id="delete"class="btn btn-danger">Delete</button>';
     domString += '</div>';
     domString += '</div>';
     domString += '</div>';
@@ -51,9 +57,18 @@ const addMessage = () => {
   document.getElementById('input-form').reset();
 };
 
+const clearMessages = () => {
+  if (messageData.messages.length > 0) {
+    messageData.emptyMessages();
+    displayAllMessages();
+  }
+  checkClearButton();
+};
+
 
 export default {
   addMessage,
   displayAllMessages,
   deleteCard,
+  clearMessages,
 };

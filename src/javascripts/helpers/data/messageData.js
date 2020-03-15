@@ -38,8 +38,13 @@ const setMessage = (newMessage) => {
   messages.push(newMessage);
 };
 
+const emptyMessages = () => {
+  messages.splice(0, messages.length);
+};
+
 export default {
   messages,
   getMessages,
   setMessage,
+  emptyMessages,
 };
