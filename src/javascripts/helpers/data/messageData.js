@@ -43,7 +43,10 @@ const setMessage = (newMessage) => {
 };
 
 
-const lastTwentyMessages = () => messages.slice(messages.length - 6, messages.length); // this is a return statement
+// const lastTwentyMessages = () => messages.slice(messages.length - 6, messages.length); // this is a return statement
+// const lastTwentyMessages = () => messages.slice(0, messages.length); // this is a return statement
+// const lastTwentyMessages = () => messages.slice(messages.length - 5, messages.length + 10); // -5 +5 works
+const lastTwentyMessages = () => messages.slice(0, messages.length + 10);
 
 //
 // const lastTwentyMessages = () => {

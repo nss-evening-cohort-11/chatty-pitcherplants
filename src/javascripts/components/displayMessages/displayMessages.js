@@ -14,9 +14,8 @@ const clearButtonActive = () => {
 
 const displayAllMessages = () => {
   const selectedName = document.querySelector('input[name="userSelection"]:checked').value;
-  // const messages = messageData.getMessages();
+  // const messages = messageData.getMessages(); // original line
   const messages = messageData.lastTwentyMessages();
-  // const messages = messageData.lastTwentyMessages(); // added
 
   let domString = '';
 
@@ -39,14 +38,13 @@ const displayAllMessages = () => {
   });
 
   util.printToDom('incoming-message', domString);
-  console.error(messageData.lastTwentyMessages());
-  return messageData.lastTwentyMessages();
+  // console.error(messageData.lastTwentyMessages());
+  messageData.lastTwentyMessages();
 };
 
 
 const deleteCard = (e) => {
-  const messages = messageData.getMessages(); // added
-  // const messages = messageData.lastTwentyMessages();
+  const messages = messageData.getMessages();
   const cardId = e.target.closest('.card').id;
   const messageIndex = messages.findIndex((x) => x.id === cardId);
   messages.splice(messageIndex, 1);
@@ -59,8 +57,6 @@ const addMessage = () => {
 
   const name = document.querySelector('input[name="userSelection"]:checked').value;
   const currentUser = userData.getUsers().find((x) => x.name === name);
-  // console.error(currentUser.id);
-  // console.error(messageData.getMessages());
   const messageCount = messageData.getMessages().filter((x) => x.name === currentUser.name).length + 1;
   if (!/^\s*$/.test(message)) {
     const messageObject = {
