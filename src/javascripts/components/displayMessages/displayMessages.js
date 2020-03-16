@@ -21,7 +21,7 @@ const displayAllMessages = () => {
   messages.forEach((userMessage) => {
     const isCurrentUser = userMessage.name === selectedName;
     domString += `<div class="outside ${isCurrentUser ? 'align-self-end' : 'align-self-start'} ${isLargeChecked ? 'large-text' : ''}">`;
-    domString += `<div id="${userMessage.id}" class="card-divider card my-2">`;
+    domString += `<div id="${userMessage.id}" class="${isCurrentUser ? 'card-divider-user' : 'card-divider-guest'} card my-2">`;
     domString += '<div class="user-card card-body">';
     domString += `<h5 class="card-title">${userMessage.name}</h5>`;
     domString += `<p class="card-text">${userMessage.message}</p>`;
@@ -29,7 +29,7 @@ const displayAllMessages = () => {
     domString += `<small class="card-text">${userMessage.date}</small>`;
     domString += '</div>';
     domString += '<div class ="text-right">';
-    domString += `${isCurrentUser ? '<button class="m-2 delete btn btn-danger">Delete</button>' : ''}`;
+    domString += `${isCurrentUser ? '<button id="delete-button" class="m-2 delete btn btn-outline-dark">Delete</button>' : ''}`;
     domString += '</div>';
     domString += '</div>';
     domString += '</div>';
