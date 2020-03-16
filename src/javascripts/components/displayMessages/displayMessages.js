@@ -13,9 +13,13 @@ const clearButtonActive = () => {
 };
 
 const displayAllMessages = () => {
+  const largeTextRadioButton = document.querySelector('input[name="largeTextRadioButton"]');
+  const isLargeChecked = largeTextRadioButton.checked;
+  console.error(isLargeChecked);
   const selectedName = document.querySelector('input[name="userSelection"]:checked').value;
   const messages = messageData.getMessages();
   let domString = '';
+  domString += `<div class="${isLargeChecked === true ? 'large-text' : ''}">`;
 
   messages.forEach((userMessage) => {
     const isCurrentUser = userMessage.name === selectedName;
