@@ -14,6 +14,7 @@ const buttonEvents = () => {
   $('body').on('click', '.delete', displayMessage.deleteCard);
   $('input[type=radio][name=userSelection]').on('change', displayMessage.displayAllMessages);
   new Darkmode().showWidget();
+  $('input[type=checkbox][name=largeTextRadioButton]').on('change', displayMessage.displayAllMessages);
 };
 
 const init = () => {
