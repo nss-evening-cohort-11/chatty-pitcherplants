@@ -34,6 +34,17 @@ const messages = [{
 
 const getMessages = () => messages;
 
+const getLastTwentyMessages = () => {
+  const lastTwentyArr = [];
+  if (messages.length > 20) {
+    for (let i = messages.length - 20; i < messages.length; i += 1) {
+      lastTwentyArr.push(messages[i]);
+    }
+    return lastTwentyArr;
+  }
+  return messages;
+};
+
 const setMessage = (newMessage) => {
   messages.push(newMessage);
 };
@@ -46,4 +57,5 @@ export default {
   getMessages,
   setMessage,
   emptyMessages,
+  getLastTwentyMessages,
 };
