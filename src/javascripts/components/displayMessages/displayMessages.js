@@ -19,11 +19,9 @@ const displayAllMessages = () => {
   const selectedName = document.querySelector('input[name="userSelection"]:checked').value;
   const messages = messageData.getMessages();
   let domString = '';
-  domString += `<div class="${isLargeChecked === true ? 'large-text' : ''}">`;
-
   messages.forEach((userMessage) => {
     const isCurrentUser = userMessage.name === selectedName;
-    domString += `<div class="outside ${isCurrentUser === true ? 'align-self-end' : 'align-self-start'}">`;
+    domString += `<div class="outside ${isCurrentUser === true ? 'align-self-end' : 'align-self-start'} ${isLargeChecked === true ? 'large-text' : ''}">`;
     domString += `<div id="${userMessage.id}" class="card-divider card my-2">`;
     domString += '<div class="user-card card-body">';
     domString += `<h5 class="card-title">${userMessage.name}</h5>`;
