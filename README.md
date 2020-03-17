@@ -1,6 +1,6 @@
 # Title: Chatty-Pitcherplants 
 
-## Description: In this team project, we created an interface for different users to chat each other. Pick a name, and hop into the conversation.  
+## Description: In this team project, we created an interface for different users to chat with each other. Pick a name, and hop into the conversation.  
 
 ## Screenshots
 ![Project Screenshot](https://raw.githubusercontent.com/nss-evening-cohort-11/chatty-pitcherplants/master/src/images/light-mode.jpg)
